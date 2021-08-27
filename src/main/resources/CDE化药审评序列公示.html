@@ -1,0 +1,1559 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>审评序列 （新报任务化药）</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-store">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+
+<link rel="stylesheet" type="text/css" href="styles/css/pro_dropdown_2.css">
+<link href="styles/css/css_cde_commons.css" rel="stylesheet" type="text/css">
+
+<!--[if lt IE 9]><script r='m'>document.createElement("section")</script><![endif]--><script language="javascript" src="scripts/jquery-1.12.4.js"></script>
+
+
+
+<!--[if IE 6]>
+<script src="scripts/iepngfx.js" language="javascript" type="text/javascript"></script>
+<![endif]-->
+    <script type="text/javascript" src="/scripts/page.js"></script>
+    <link href="/styles/cdeKFR.css" rel="stylesheet" type="text/css">
+    <link href="/styles/css/link.css" rel="stylesheet" type="text/css">
+    <link href="/styles/css/layout.css" rel="stylesheet" type="text/css">
+    <link href="/styles/css/global.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+        .STYLE1 {
+            font-size: 12px
+        }
+        .STYLE2 {
+            color: #FF9900;
+            font-weight: bold;
+        }
+        .STYLE3 {
+            font-weight: bold;
+            font-size: 13px;
+            margin-left: 12px;
+            margin-top: 22px;
+            margin-bottom: 22px;
+        }
+    </style>
+
+    <script type="text/javascript">
+    function subSelect(value) {
+        if (value != '') {
+            document.forms[0].submit();
+        } else {
+            return false;
+        }
+    }
+
+    //新报任务审评任务分类选择直接提交
+    function checkSub() {
+
+        var type = 'xb';
+
+        if (type == "xb") {
+            var applyTypeCde = document.getElementById("applyTypeCde").value;
+            if (applyTypeCde == null || applyTypeCde == "") {
+                alert("请选择您要查询的受理号所在审评任务分类");
+                return false;
+            }
+            document.forms[0].submit();
+        }
+        if (type == "fb") {
+            var department = document.getElementById("department").value;
+            if (department == null || department == "") {
+                alert("请选择您要查询的受理号所在审评部门");
+                return false;
+            }
+            document.forms[0].submit();
+        }
+    }
+
+    //初始单选按钮赋值
+    function onlaoding() {
+        initRadio('branchType', '综合');
+
+        var tasktype = "xb";
+        if (tasktype == 'xb') {
+            initSelected("applyTypeCde", 'IND', 'xb', 'xb');
+            initSelected("isTimetag", '0', 'xb', 'xb');
+        } else {
+            initSelected("department", '药理毒理学部', 'xb', 'fb');
+            initSelected("isTimetag", '0', 'xb', 'fb');
+        }
+        //不包括暂停品种时，页面显示“本页面不包括暂停品种”
+        var timeTag = '0';
+        if (timeTag != null && timeTag == "1") {
+            document.getElementById("timeTagInfo").style.display = "";
+        }
+
+        //edit by wanbo:2016/12/22
+        var andaTag = '';
+        if (andaTag != null && andaTag != "") {
+            document.getElementById("andaTag").html(andaTag);
+        }
+    }
+
+    //初始化页面单选按钮,name为页面radio属性，value为值
+    function initRadio(name, value) {
+
+        var names = new Array();
+        names = document.getElementsByName(name);
+        if (names != null && names != '') {
+            for (var i = 0; i < names.length; i++) {
+                if (names[i].value == value) {
+                    names[i].checked = true;
+                }
+            }
+        }
+    }
+
+    //初始化下拉框默认选中
+    function initSelected(selectId, value) {
+        var isChecked = false;
+        var select_obj = document.getElementById(selectId);
+        for (var i = 0; i < select_obj.length; i++) {
+            if (value != "" && select_obj.options[i].value == value) {
+                select_obj.selectedIndex = i;
+                isChecked = true;
+            }
+        }
+
+    }
+    </script>
+</head>
+
+<body style="padding: 0px; margin: 0px; background-image:none" onload="onlaoding()">
+
+<form name="transparentForm" method="post" action="/transparent.do?method=spxlList">
+    <input type="hidden" name="tasktype" value="xb" id="tasktype">
+    <input type="hidden" name="nowYearM" value="2021-08" id="nowYearM">
+    <input type="hidden" name="isZy" value="0" id="isZy">
+
+
+    <table width="748" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tbody><tr>
+            <td style="background:url(styles/images/newslist/img_content_top.png) no-repeat; height:31px; text-align:left;text-indent:2em;">当前位置：信息公开&gt;&gt;&nbsp;收审情况&gt;&gt;新报任务公示</td>
+        </tr>
+        <tr>
+            <td valign="top" style="background:url(styles/images/newslist/img_content_body.png) repeat-y; height:400px;">
+                
+                <table width="714" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tbody><tr>
+                        <td height="5px;"></td>
+                    </tr>
+                </tbody></table>
+                <table width="714" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td width="100%">
+                                <table width="100%" border="1" align="center" cellpadding="0" cellspacing="0">
+                                    <tbody>
+                                        <tr>
+                                            <td width="33%" height="32" id="zyID" style="background-color: #FFFFFF" align="center" class="STYLE3">
+                                                <a href="transparent.do?method=spxlList&amp;tasktype=xb&amp;isFirst=1&amp;isZy=1">中药审评序列公示</a>
+                                            </td>
+
+                                            <td width="33%" height="32" id="hyID" style="background-color: #8AB6E3;" align="center" class="STYLE3">
+                                                <a href="transparent.do?method=spxlList&amp;tasktype=xb&amp;isFirst=1">化药审评序列公示</a>
+                                            </td>
+
+                                            <td width="33%" height="32" id="swID" style="background-color: #FFFFFF" align="center" class="STYLE3">
+                                                <a href="transparent.do?method=swSpxlList&amp;tasktype=xb&amp;isFirst=1">生物制品审评序列公示</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+
+                            <td width=""></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table width="714" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td width="38"><img src="/styles/images/icon/search_1.gif" alt="" width="38" height="32"></td>
+                            <td style="background:url(/styles/images/icon/search_2.gif)">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td>受理号：</td>
+                                            <td>
+                                                <input type="text" name="acceptid" value="" onkeypress="if(event.keyCode==39) {alert('受理号中不能包含'+String.fromCharCode(event.keyCode)+'！');event.srcElement.focus(); event.returnValue = false;} else event.returnValue = true;" id="acceptid" style="WIDTH: 95px;border: 1px solid #ADB9C2; height:18px; ">
+                                            </td>
+                                            <td>审评任务分类:&nbsp;&nbsp;
+                                                <select name="applyTypeCde" onchange="subSelect(this.value);" id="applyTypeCde">
+                                                    <option value="">-请选择-</option>
+                                                    <option value="IND">IND</option>
+                                                    <option value="NDA" selected="selected">NDA</option>
+                                                    <option value="ANDA">ANDA</option>
+                                                    <option value="验证性临床">验证性临床</option>
+                                                    <!-- <option value="补充申请">补充申请</option> -->
+                                                    <option value="补充申请（临床）">补充申请（临床）</option>
+                                                    <option value="补充申请（药学）">补充申请（药学）</option>
+                                                    <option value="进口再注册">进口再注册</option>
+                                                    <!-- <option value="一致性评价">一致性评价</option>-->
+                                                    </select>
+
+                                                <select name="isTimetag" id="isTimetag" style="width:150px;">
+                                                    <option value="1">不显示暂停品种</option>
+                                                    <option value="0">显示全部品种</option>
+                                                </select>
+                                            </td>
+                                            <td><span class="menu"><img alt="" src="styles/images/chaxun.png" onclick="checkSub();" style="cursor: pointer;"></span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                            <td width="14"><img src="/styles/images/icon/search_3.gif" alt="" width="14" height="32"></td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <table width="714" border="0" cellspacing="0" cellpadding="0" align="center">
+                    <tbody><tr>
+                        <td colspan="2" align="center"></td>
+                    </tr>
+                    <tr>
+                        <td height="8"></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td height="30" colspan="2" align="left"> 说明：
+
+                            &nbsp;&nbsp;&nbsp;<img src="/styles/images/lamp.gif"> ：&nbsp;本专业正在审评
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/styles/images/lamp_y.jpg"> ：&nbsp;本专业排队待审评
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/styles/images/lamp_shut.gif"> ：&nbsp;&nbsp;本专业已完成审评
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;空：本专业未启动。 <br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            所有专业结束后将进入综合审评阶段。
+                            <br>
+                            <br></td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">10月12日中心根据<a href="http://www.cde.org.cn/news.do?method=viewInfoCommon&amp;id=7a7ba7ff5f8e4645" target="_blank"><font color="blue">“关于审评任务排队“不进反退”问题的释疑”</font></a>新闻，对审评任务序列的公示方法进行了相应调整。
+                            <br>
+                            <br>
+                        </td>
+
+                    </tr>
+
+                    <tr>
+                        <td width="16"><img src="styles/images/iconArticle.gif" width="12" height="13"></td>
+                        <td width="680" align="left"> 共有 <span class="STYLE2">309</span> 条记录<span id="timeTagInfo" style="display: none">
+                  
+                  <font color="red">(不包括暂停品种)</font>
+                  </span></td>
+                    </tr>
+                </tbody></table>
+                
+                    
+                
+                
+                <table width="714" border="0" cellpadding="10" cellspacing="1" bgcolor="#8AB6E3" align="center">
+                    <thead>
+                    <tr><th width="8%" height="10" align="center" background="/styles/images/news_list_title_bg1.jpg"><strong style="Font-size: 14px; color: #06519A;">序号</strong></th>
+                    <th width="10%" height="10" align="center" background="/styles/images/news_list_title_bg1.jpg"><strong style="Font-size: 14px; color: #06519A;">受理号</strong></th>
+                    <th width="12%" height="10" align="center" background="/styles/images/news_list_title_bg1.jpg"><strong style="Font-size: 14px; color: #06519A;">药品名称</strong></th>
+                    <th width="16%" height="10" align="center" background="/styles/images/news_list_title_bg1.jpg"><strong style="Font-size: 14px; color: #06519A;">进入中心时间</strong></th>
+                    <th width="12%" height="10" align="center" background="/styles/images/news_list_title_bg1.jpg"><strong style="Font-size: 14px; color: #06519A;">审评状态</strong></th>
+                    <th width="12%" height="10" align="center" background="/styles/images/news_list_title_bg1.jpg"><strong style="Font-size: 14px; color: #06519A;">药理毒理</strong></th>
+                    <th width="8%" height="10" align="center" background="/styles/images/news_list_title_bg1.jpg"><strong style="Font-size: 14px; color: #06519A;">临床</strong></th>
+                    <th width="8%" height="10" align="center" background="/styles/images/news_list_title_bg1.jpg"><strong style="Font-size: 14px; color: #06519A;">药学</strong></th>
+                    <th width="20%" height="10" align="center" background="/styles/images/news_list_title_bg1.jpg"><strong style="Font-size: 14px; color: #06519A;">备注</strong></th>
+                    </tr></thead>
+                    <tbody>
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 1 </td>
+                                <td align="center"> JXHL2101079 </td>
+                                <td align="center"> LNP023胶囊 </td>
+                                <td align="center"> 2021-06-03 </td>
+                                <td align="left"> 排队待审评 </td>
+                                <td align="center"> <img src="/styles/images/lamp_y.jpg"> </td>
+                                <td align="center"> <img src="/styles/images/lamp.gif"> </td>
+                                <td align="center"> <img src="/styles/images/lamp_shut.gif"> </td>
+                                <td align="left"> </td>
+                            </tr>
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 2 </td>
+                                <td align="center">CXHL2101175</td>
+                                <td align="center"> TQA3605片 </td>
+                                <td align="center"> 2021-06-04 </td>
+                                <td align="left">排队待审评</td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="left"></td>
+                            </tr>
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 3 </td>
+                                <td align="center">CXHL2101176</td>
+                                <td align="center"> TQA3605片 </td>
+                                <td align="center"> 2021-06-04 </td>
+                                <td align="left">排队待审评</td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="left"></td>
+                            </tr>
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 4 </td>
+                                <td align="center">CXHL2101177</td>
+                                <td align="center"> HRG2010胶囊 </td>
+                                <td align="center"> 2021-06-04 </td>
+                                <td align="left">排队待审评</td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="left"></td>
+                            </tr>
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 5 </td>
+                                <td align="center">CXHL2101178</td>
+                                <td align="center"> HRG2010胶囊 </td>
+                                <td align="center"> 2021-06-04 </td>
+                                <td align="left">排队待审评</td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"</td>
+                                <td align="left"></td>
+                            </tr>
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 6 </td>
+                                <td align="center">JXHL2101080</td>
+                                <td align="center"> 维托拉生注射液 </td>
+                                <td align="center"> 2021-06-04 </td>
+                                <td align="left">排队待审评</td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="left"></td>
+                            </tr>
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 7 </td>
+                                <td align="center">CXHL2101181</td>
+                                <td align="center"> 复达那非片 </td>
+                                <td align="center"> 2021-06-07 </td>
+                                <td align="left">排队待审评</td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="center"><img src="/styles/images/lamp_shut.gif"></td>
+                                <td align="left"></td>
+                            </tr>
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 8 </td>
+                                    
+                                <td align="center">
+                                    
+                                        
+                                        CXHL2101182
+                                    </td>
+                                <td align="center"> 复达那非片 </td>
+                                    
+                                <td align="center"> 2021-06-07 </td>
+                                    
+                                <td align="left">
+                                    
+                                        
+                                        
+                                            
+                                            排队待审评
+                                        
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                        
+                                    
+                                
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                
+
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                            
+                                                
+                                                
+                                                
+                                                 <img src="/styles/images/lamp_shut.gif"> 
+                                                
+                                            
+                                        
+                                            
+                                        
+                                            
+                                        
+                                    
+                                    </td>
+                                
+                                
+                                <td align="left">
+                                        
+                                         </td>
+                            </tr>
+                        
+                            
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 9 </td>
+                                    
+                                <td align="center">
+                                    
+                                        
+                                        JXHL2101081
+                                    </td>
+                                <td align="center"> Etrasimod片 </td>
+                                    
+                                <td align="center"> 2021-06-07 </td>
+                                    
+                                <td align="left">
+                                    
+                                        
+                                        
+                                            
+                                            排队待审评
+                                        
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                        
+                                    
+                                
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                
+
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                            
+                                                
+                                                
+                                                
+                                                 <img src="/styles/images/lamp_shut.gif"> 
+                                                
+                                            
+                                        
+                                            
+                                        
+                                            
+                                        
+                                    
+                                    </td>
+                                
+                                
+                                <td align="left">
+                                        
+                                         </td>
+                            </tr>
+                        
+                            
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 10 </td>
+                                    
+                                <td align="center">
+                                    
+                                        
+                                        JXHL2101082
+                                    </td>
+                                <td align="center"> Etrasimod片 </td>
+                                    
+                                <td align="center"> 2021-06-07 </td>
+                                    
+                                <td align="left">
+                                    
+                                        
+                                        
+                                            
+                                            排队待审评
+                                        
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                        
+                                    
+                                
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                
+
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                            
+                                                
+                                                
+                                                
+                                                 <img src="/styles/images/lamp_shut.gif"> 
+                                                
+                                            
+                                        
+                                            
+                                        
+                                            
+                                        
+                                    
+                                    </td>
+                                
+                                
+                                <td align="left">
+                                        
+                                         </td>
+                            </tr>
+                        
+                            
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 11 </td>
+                                    
+                                <td align="center">
+                                    
+                                        
+                                        CXHL2101187
+                                    </td>
+                                <td align="center"> 注射用苏拉明钠 </td>
+                                    
+                                <td align="center"> 2021-06-08 </td>
+                                    
+                                <td align="left">
+                                    
+                                        
+                                        
+                                            
+                                            排队待审评
+                                        
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                        
+                                    
+                                
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                
+
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                            
+                                                
+                                                
+                                                
+                                                 <img src="/styles/images/lamp_shut.gif"> 
+                                                
+                                            
+                                        
+                                            
+                                        
+                                            
+                                        
+                                    
+                                    </td>
+                                
+                                
+                                <td align="left">
+                                        
+                                         </td>
+                            </tr>
+                        
+                            
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 12 </td>
+                                    
+                                <td align="center">
+                                    
+                                        
+                                        CYHL2101013
+                                    </td>
+                                <td align="center"> 奥贝胆酸片 </td>
+                                    
+                                <td align="center"> 2021-06-08 </td>
+                                    
+                                <td align="left">
+                                    
+                                        
+                                        
+                                            
+                                            排队待审评
+                                        
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                        
+                                    
+                                
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                
+
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                            
+                                                
+                                                
+                                                
+                                                 <img src="/styles/images/lamp_shut.gif"> 
+                                                
+                                            
+                                        
+                                            
+                                        
+                                            
+                                        
+                                    
+                                    </td>
+                                
+                                
+                                <td align="left">
+                                        
+                                         </td>
+                            </tr>
+                        
+                            
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 13 </td>
+                                    
+                                <td align="center">
+                                    
+                                        
+                                        CYHL2101014
+                                    </td>
+                                <td align="center"> 奥贝胆酸片 </td>
+                                    
+                                <td align="center"> 2021-06-08 </td>
+                                    
+                                <td align="left">
+                                    
+                                        
+                                        
+                                            
+                                            排队待审评
+                                        
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                        
+                                    
+                                
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                
+
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                            
+                                                
+                                                
+                                                
+                                                 <img src="/styles/images/lamp_shut.gif"> 
+                                                
+                                            
+                                        
+                                            
+                                        
+                                            
+                                        
+                                    
+                                    </td>
+                                
+                                
+                                <td align="left">
+                                        
+                                         </td>
+                            </tr>
+                        
+                            
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 14 </td>
+                                    
+                                <td align="center">
+                                    
+                                        
+                                        CXHL2101194
+                                    </td>
+                                <td align="center"> LP-128胶囊 </td>
+                                    
+                                <td align="center"> 2021-06-10 </td>
+                                    
+                                <td align="left">
+                                    
+                                        
+                                        
+                                            
+                                            排队待审评
+                                        
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                        
+                                    
+                                
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                
+
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                            
+                                                
+                                                
+                                                
+                                                 <img src="/styles/images/lamp_shut.gif"> 
+                                                
+                                            
+                                        
+                                            
+                                        
+                                            
+                                        
+                                    
+                                    </td>
+                                
+                                
+                                <td align="left">
+                                        
+                                         </td>
+                            </tr>
+                        
+                            
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 15 </td>
+                                    
+                                <td align="center">
+                                    
+                                        
+                                        CXHL2101195
+                                    </td>
+                                <td align="center"> LP-128胶囊 </td>
+                                    
+                                <td align="center"> 2021-06-10 </td>
+                                    
+                                <td align="left">
+                                    
+                                        
+                                        
+                                            
+                                            排队待审评
+                                        
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                        
+                                    
+                                
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                
+
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                            
+                                                
+                                                
+                                                
+                                                 <img src="/styles/images/lamp_shut.gif"> 
+                                                
+                                            
+                                        
+                                            
+                                        
+                                            
+                                        
+                                    
+                                    </td>
+                                
+                                
+                                <td align="left">
+                                        
+                                         </td>
+                            </tr>
+                        
+                            
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 16 </td>
+                                    
+                                <td align="center">
+                                    
+                                        
+                                        CXHL2101196
+                                    </td>
+                                <td align="center"> VC005片 </td>
+                                    
+                                <td align="center"> 2021-06-10 </td>
+                                    
+                                <td align="left">
+                                    
+                                        
+                                        
+                                            
+                                            排队待审评
+                                        
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                        
+                                    
+                                
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                
+
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                            
+                                                
+                                                
+                                                
+                                                 <img src="/styles/images/lamp_shut.gif"> 
+                                                
+                                            
+                                        
+                                            
+                                        
+                                            
+                                        
+                                    
+                                    </td>
+                                
+                                
+                                <td align="left">
+                                        
+                                         </td>
+                            </tr>
+                        
+                            
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 17 </td>
+                                    
+                                <td align="center">
+                                    
+                                        
+                                        CXHL2101197
+                                    </td>
+                                <td align="center"> VC005片 </td>
+                                    
+                                <td align="center"> 2021-06-10 </td>
+                                    
+                                <td align="left">
+                                    
+                                        
+                                        
+                                            
+                                            排队待审评
+                                        
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                        
+                                    
+                                
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                
+
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                            
+                                                
+                                                
+                                                
+                                                 <img src="/styles/images/lamp_shut.gif"> 
+                                                
+                                            
+                                        
+                                            
+                                        
+                                            
+                                        
+                                    
+                                    </td>
+                                
+                                
+                                <td align="left">
+                                        
+                                         </td>
+                            </tr>
+                        
+                            
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 18 </td>
+                                    
+                                <td align="center">
+                                    
+                                        
+                                        CXHL2101198
+                                    </td>
+                                <td align="center"> VC005片 </td>
+                                    
+                                <td align="center"> 2021-06-10 </td>
+                                    
+                                <td align="left">
+                                    
+                                        
+                                        
+                                            
+                                            排队待审评
+                                        
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                        
+                                    
+                                
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                
+
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                            
+                                                
+                                                
+                                                
+                                                 <img src="/styles/images/lamp_shut.gif"> 
+                                                
+                                            
+                                        
+                                            
+                                        
+                                            
+                                        
+                                    
+                                    </td>
+                                
+                                
+                                <td align="left">
+                                        
+                                         </td>
+                            </tr>
+                        
+                            
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 19 </td>
+                                    
+                                <td align="center">
+                                    
+                                        
+                                        CXHL2101199
+                                    </td>
+                                <td align="center"> VC005片 </td>
+                                    
+                                <td align="center"> 2021-06-10 </td>
+                                    
+                                <td align="left">
+                                    
+                                        
+                                        
+                                            
+                                            排队待审评
+                                        
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                        
+                                    
+                                
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                
+
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                            
+                                                
+                                                
+                                                
+                                                 <img src="/styles/images/lamp_shut.gif"> 
+                                                
+                                            
+                                        
+                                            
+                                        
+                                            
+                                        
+                                    
+                                    </td>
+                                
+                                
+                                <td align="left">
+                                        
+                                         </td>
+                            </tr>
+                        
+                            
+
+                            <tr bgcolor="#f5fafe" class="newsindex">
+                                <td align="center"> 20 </td>
+                                    
+                                <td align="center">
+                                    
+                                        
+                                        CYHL2101015
+                                    </td>
+                                <td align="center"> 注射用伏立康唑 </td>
+                                    
+                                <td align="center"> 2021-06-10 </td>
+                                    
+                                <td align="left">
+                                    
+                                        
+                                        
+                                            
+                                            排队待审评
+                                        
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                        
+                                    
+                                
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                    
+                                        
+                                    
+                                        
+                                            
+                                            
+                                            
+                                             <img src="/styles/images/lamp_shut.gif"> 
+                                            
+                                        
+                                    
+                                
+
+                                    </td>
+                                <td align="center">
+                                    
+                                        
+                                            
+                                                
+                                                
+                                                
+                                                 <img src="/styles/images/lamp_shut.gif"> 
+                                                
+                                            
+                                        
+                                            
+                                        
+                                            
+                                        
+                                    
+                                    </td>
+                                
+                                
+                                <td align="left">
+                                        
+                                         </td>
+                            </tr>
+                        
+                    
+                    </tbody>
+                </table>
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+		<title>列表</title>
+	
+	
+		<table>
+			<tbody><tr>
+				<td width="50">
+					<input type="hidden" name="currentPageNumber" value="1" id="currentPageNumber">
+					<input type="hidden" name="pageMaxNumber" value="20" id="pageMaxNumber">
+					<input type="hidden" name="totalPageCount" value="16" id="totalPageCount">
+					<input type="hidden" name="pageroffset" value="" id="pageroffset">
+				</td>
+				<td>
+					共
+					<font color="#FF0000" style="font-weight: bolder;">309</font>条记录,每页&nbsp;&nbsp;
+				</td>
+				<td>
+					<select name="pageMaxNum" onchange="setPageMaxNum('pageMaxNum','pageMaxNumber');" id="pageMaxNum"><option value="20">20</option>
+						<option value="40">40</option>
+						<option value="60">60</option>
+						<option value="80">80</option></select>
+				</td>
+				<td>
+					&nbsp;&nbsp;条
+				</td>
+				<td id="pageNumber">
+					当前第
+					<font color="red">1</font>页 共&nbsp;&nbsp;
+					<font color="red">16</font>&nbsp;&nbsp;页
+				</td>
+				<td width="50"></td>
+				<td>
+						
+
+
+
+
+<font face="fixed">
+
+
+
+  <a style="color: #0033CC;" href="#" onclick="forword('transparent.do?method=spxlList?method=spxlList&amp;pageroffset=20','1')"><img border="0" src="/styles/images/nextPage.gif"></a>
+
+
+  <a style="color: #0033CC;" href="#" onclick="forwordlast('transparent.do?method=spxlList?method=spxlList&amp;pageroffset=300','16')"><img border="0" src="/styles/images/lastPage.gif"></a>
+
+</font>
+
+				</td>
+				
+				
+				
+					<td style="color: #0033CC; font-size: 13px;" align="right">
+						跳转到
+					</td>
+					<td>
+						
+						
+							<select name="pagenum" onchange="selectJumping(this.value)" id="pagenum"><option value="1">1</option>
+									
+								
+									<option value="2">2</option>
+									
+								
+									<option value="3">3</option>
+									
+								
+									<option value="4">4</option>
+									
+								
+									<option value="5">5</option>
+									
+								
+									<option value="6">6</option>
+									
+								
+									<option value="7">7</option>
+									
+								
+									<option value="8">8</option>
+									
+								
+									<option value="9">9</option>
+									
+								
+									<option value="10">10</option>
+									
+								
+									<option value="11">11</option>
+									
+								
+									<option value="12">12</option>
+									
+								
+									<option value="13">13</option>
+									
+								
+									<option value="14">14</option>
+									
+								
+									<option value="15">15</option>
+									
+								
+									<option value="16">16</option></select>
+						
+
+					</td>
+					<td>
+						页
+					</td>
+				
+			</tr>
+		</tbody></table>
+	
+        </td></tr><tr>
+
+            <td width="100%" colspan="9" align="left">
+            </td>
+        </tr>
+        
+        
+        
+        
+        
+            
+        
+            
+        
+        
+        <tr>
+            <td style="background:url(styles/images/newslist/img_content_foot.png) no-repeat; height:6px;"></td>
+        </tr>
+    </tbody></table>
+
+</form>
+
+
+
+<script type="text/javascript">
+
+
+</script>
+
+</body>
+
+</html>
